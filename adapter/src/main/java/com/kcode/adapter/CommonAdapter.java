@@ -100,7 +100,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(final RecyclerViewHolder holder, int position) {
-        setupViewHolder(holder, position);
+        setupViewHolder(holder, position,data.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,11 +123,19 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
         });
     }
 
-    protected abstract void setupViewHolder(RecyclerViewHolder holder, int position);
+    protected abstract void setupViewHolder(RecyclerViewHolder holder, int position, T item);
 
     @Override
     public int getItemCount() {
         return data == null ? 0 : data.size();
+    }
+
+    public void addOnItemClickListener(OnItemClickListener listener){
+        onItemClickListener = listener;
+    }
+
+    public void addOnItemLongClickListener(OnItemLongClickListener listener){
+        onItemLongClickListener = listener;
     }
 
     private OnItemClickListener onItemClickListener;
