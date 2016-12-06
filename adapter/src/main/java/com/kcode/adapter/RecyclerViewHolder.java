@@ -20,27 +20,27 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
         views = new SparseArray<>();
     }
 
-    private <T extends View> T findViewById(int id) {
-        return (T) itemView.findViewById(id);
+    private View findViewById(int id) {
+        return itemView.findViewById(id);
     }
 
-    public View getView(int id) {
+    public <T extends View> T getView(int id) {
         View view = views.get(id);
         if (view == null) {
             view = findViewById(id);
             views.put(id,view);
         }
 
-        return view;
+        return (T) view;
     }
 
     public void setText(int id,int resId) {
-        TextView textView = (TextView) getView(id);
+        TextView textView = getView(id);
         textView.setText(resId);
     }
 
     public void setText(int id,String text) {
-        TextView textView = (TextView) getView(id);
+        TextView textView = getView(id);
         textView.setText(text);
     }
 

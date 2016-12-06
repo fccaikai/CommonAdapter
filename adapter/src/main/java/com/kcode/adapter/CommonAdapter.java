@@ -93,9 +93,18 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    protected int getItemLayout(int viewType){
+        return resource;
+    }
+
+    @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new RecyclerViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(resource, parent, false));
+                .inflate(getItemLayout(viewType), parent, false));
     }
 
     @Override
