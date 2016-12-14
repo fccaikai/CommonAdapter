@@ -41,12 +41,29 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
         mRecyclerView.addItemDecoration(
                 new DividerItemDecoration(ContextCompat.getDrawable(getApplicationContext(),R.drawable.line)
                         ,LinearLayoutManager.VERTICAL));
+
         mRecyclerView.setAdapter(adapter);
         adapter.init(initData());
+
+        //add item click listener
+        adapter.addOnItemClickListener(new CommonAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+        });
+
+        //add item long click listener
+        adapter.addOnItemLongClickListener(new CommonAdapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(int position) {
+
+            }
+        });
+
 
     }
 
