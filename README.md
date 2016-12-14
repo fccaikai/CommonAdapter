@@ -1,4 +1,5 @@
 ##CommonAdapter
+Android RecyclerView 通用Adapter。可减少重复代码。快速创建一个Adapter.
 ###如何使用
 
 + 添加依赖
