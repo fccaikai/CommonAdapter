@@ -48,6 +48,15 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     /**
+     * clear data
+     */
+    public void clear() {
+        createDataIfNotExits();
+        data.clear();
+        notifyDataSetChanged();
+    }
+
+    /**
      * add list
      * @param data
      */
