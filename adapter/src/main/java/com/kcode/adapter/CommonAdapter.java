@@ -108,6 +108,34 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     /**
+     * remove item by position
+     * @param position remove position
+     */
+    public void remove(int position) {
+        if (data == null || position >= data.size()) {
+            return;
+        }
+
+        data.remove(position);
+        notifyDataSetChanged();
+
+    }
+
+    /**
+     * remove item by object
+     * @param t     item object
+     */
+    public void remove(T t) {
+        if (data == null) {
+            return;
+        }
+
+        data.remove(t);
+        notifyDataSetChanged();
+
+    }
+
+    /**
      * new an ArrayList if data is null
      */
     private void createDataIfNotExits() {
