@@ -48,6 +48,17 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
     }
 
     /**
+     * add list
+     * @param data
+     */
+    public void addItems(List<T> data) {
+        createDataIfNotExits();
+        this.data.addAll(data);
+        notifyDataSetChanged();
+
+    }
+
+    /**
      * add a item
      * @param t item content
      */
@@ -55,6 +66,10 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
         createDataIfNotExits();
         data.add(t);
         notifyDataSetChanged();
+    }
+
+    public T getItemAtPosition(int position) {
+        return data.get(position);
     }
 
     /**
@@ -150,11 +165,11 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
     private OnItemClickListener onItemClickListener;
     private OnItemLongClickListener onItemLongClickListener;
 
-    public interface OnItemClickListener{
+    public interface OnItemClickListener<T>{
         void onItemClick(int position);
     }
 
-    public interface OnItemLongClickListener{
+    public interface OnItemLongClickListener<T>{
         void onItemLongClick(int position);
     }
 }

@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addOnItemClickListener(new CommonAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
             }
         });
 
