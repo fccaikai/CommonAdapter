@@ -144,6 +144,10 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<RecyclerView
         }
     }
 
+    public List<T> getData() {
+        return data;
+    }
+
     @Override
     public int getItemViewType(int position) {
         return super.getItemViewType(position);
